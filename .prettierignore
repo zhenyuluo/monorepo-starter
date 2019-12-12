@@ -1,0 +1,22 @@
+*.min.js
+**/node_modules/**
+
+# webfont demo styles
+**/specimen_files
+
+# cache-dirs
+**/.cache
+
+# ignore built packages
+packages/**/dist/**
+packages/**/build/**
+
+# fixtures
+**/__testfixtures__/**
+**/__tests__/fixtures/**
+
+# coverage
+coverage
+
+# forestry files
+.forestry/**/*

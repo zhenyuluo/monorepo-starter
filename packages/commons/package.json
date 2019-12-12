@@ -1,0 +1,28 @@
+{
+  "name": "@starter/commons",
+  "private": true,
+  "version": "1.1.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "typings": "dist/cjs/index.d.ts",
+  "files": [
+    "src",
+    "lib/cjs/",
+    "lib/esm/"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "run-p build:cjs build:esm",
+    "build:cjs": "tsc -b",
+    "build:esm": "tsc -b tsconfig.esm.json",
+    "watch": "tsc -b -w --preserveWatchOutput"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.9.15",
+    "@types/react-dom": "^16.9.4",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "@starter/utils": "^1.0.0"
+  }
+}
