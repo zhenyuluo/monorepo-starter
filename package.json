@@ -17,7 +17,6 @@
     "lint:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.jsx,.ts,.tsx .",
     "lint:other": "yarn prettier --check",
     "prebootstrap": "yarn",
-    "precommit": "lint-staged || node scripts/on-lint-error.js",
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "watch": "run-s build watch:lerna",
     "watch:lerna": "lerna run watch --no-sort --stream --concurrency 999"
