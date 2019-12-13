@@ -1,7 +1,7 @@
 {
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "packages": "run-s clean bootstrap fix build test",
+    "bundle": "run-s clean bootstrap fix build test",
     "build": "lerna run build",
     "test": "lerna run test --stream",
     "clean:lerna": "lerna clean",
