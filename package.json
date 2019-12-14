@@ -20,6 +20,8 @@
     "prebootstrap": "yarn",
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "watch": "run-s build watch:lerna",
+    "prerelease": "standard-version",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "watch:lerna": "lerna run watch --no-sort --stream --concurrency 999"
   },
   "name": "starter",
@@ -105,7 +107,8 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "version": "1.0.0"
 }
