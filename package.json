@@ -1,4 +1,5 @@
 {
+  "name": "starter",
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "bundle": "run-s clean bootstrap fix build test",
@@ -6,7 +7,6 @@
     "test": "lerna run test --stream",
     "clean:lerna": "lerna clean",
     "clean": "rimraf \"packages/*/dist\" && rimraf \"packages/*/build\"",
-    "changelog": "lerna-changelog",
     "commit": "git-cz",
     "fix": "run-s fix:*",
     "fix:code": "yarn lint:code --fix",
@@ -24,7 +24,6 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "watch:lerna": "lerna run watch --no-sort --stream --concurrency 999"
   },
-  "name": "starter",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -79,7 +78,6 @@
     "babel-preset-react-app": "^9.1.0",
     "commitizen": "^4.0.3",
     "cross-env": "^6.0.3",
-    "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.7.0",
@@ -109,6 +107,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "version": "1.0.0"
+  }
 }
