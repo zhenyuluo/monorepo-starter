@@ -1,6 +1,6 @@
 {
   "command": {
-    "public": {
+    "publish": {
       "allowBranch": "master",
       "bump": "patch",
       "conventialCommits": true,
