@@ -40,6 +40,7 @@ public/
 node_modules/
 .cache/
 .netlify
+.rpt2_cache
 
 # IDE specific
 .idea/

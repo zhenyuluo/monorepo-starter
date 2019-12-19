@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+
     /* Basic Operations */
     "target": "es2017",
-    "module": "commonjs",
+    "module": "ES2015",
     "lib": ["es2017", "DOM"],
     "declaration": true,
     "declarationMap": true,

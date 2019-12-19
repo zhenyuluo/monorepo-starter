@@ -9,8 +9,8 @@ class Network {
     return this.__rx;
   }
 
-  sayHello() {
-    console.log(`Say hi to`);
+  sayHello(msg: string) {
+    console.log(`Say hi to ${msg}`);
   }
 }
 

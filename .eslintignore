@@ -6,3 +6,4 @@ jest.config.js
 jest.transform.js
 commitlint.config.js
 scripts
+**/node_modules/*

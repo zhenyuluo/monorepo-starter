@@ -4,8 +4,7 @@
     "bootstrap": "lerna bootstrap",
     "bundle": "run-s clean bootstrap fix build test",
     "build": "lerna run build",
-    "clean:lerna": "lerna clean",
-    "clean": "rimraf \"packages/*/dist\" && rimraf \"packages/*/build\"",
+    "clean": "lerna run clean && lerna clean -y",
     "commit": "git-cz",
     "fix": "run-s fix:*",
     "fix:code": "yarn lint:code --fix",
@@ -20,9 +19,8 @@
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "prerelease": "yarn run bundle",
     "test": "lerna run test --stream",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "watch": "run-s build watch:lerna",
-    "watch:lerna": "lerna run watch --no-sort --stream --concurrency 999"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "watch": "lerna run watch --parallel --concurrency 999"
   },
   "private": true,
   "workspaces": [
