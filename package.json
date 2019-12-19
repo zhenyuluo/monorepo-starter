@@ -32,15 +32,15 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn format:code",
+      "yarn fix:code",
       "git add"
     ],
     "*.{md,css,scss,yaml,yml}": [
-      "yarn format:other",
+      "yarn fix:other",
       "git add"
     ],
     "*.svg": [
-      "svgo --pretty --indent=2 --config=svgo.yml --multipass",
+      "yarn fix:svg",
       "git add"
     ]
   },
