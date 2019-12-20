@@ -25,7 +25,6 @@
     "watch": "yarn start"
   },
   "eslintConfig": {
-    "ignorePatterns": [ "*.d.ts" ]
   },
   "browserslist": {
     "production": [

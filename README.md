@@ -64,9 +64,13 @@ And also, you need either remove eslintConfig section in `package.json` or just 
 
 We lint and format the source code by [ESLint](https://eslint.org/). You can run: `yarn lint:code` to lint the files for `js`, `jsx`, `ts` and `tsx`, and you can run `yarn fix:code` to fix/format the code.
 
+Normally, you needn't run those lint tasks, it will run automatically when you commit source code or bundle the packages.
+
 ### Prettier
 
 We lint and format the other files like `md`, `css`, `scss`, `yaml` by [Prettier](https://prettier.io/). You can run: `yarn lint:other` to check the files and run `yarn fix:other` to prettify those files.
+
+Normally, you needn't run those lint tasks, it will run automatically when you commit source code or bundle the packages.
 
 ### CommitLint
 
