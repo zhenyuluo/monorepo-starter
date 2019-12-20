@@ -1,4 +1,4 @@
-A starter for building the modern JavaScript projects.
+A starter kit for building modern JavaScript projects.
 
 # Features
 
@@ -16,8 +16,17 @@ Monorepo is awesome. If you want to know more, please visit this [awesome repo](
 
 the dependency of the projects looks like below:
 
-````mermaid
-
+```mermaid
+graph TD;
+  utils --> rollup;
+  commons --> rollup;
+  components --> rollup;
+  commons --> utils;
+  components --> utils;
+  components --> commons;
+  tickets --> commons;
+  tickets --> components;
+```
 
 ### Lerna
 
@@ -39,7 +48,7 @@ If you use [create-react-app](https://github.com/facebook/create-react-app) to c
   "test": "CI=true react-scripts test",
   "watch": "yarn start"
 }
-````
+```
 
 `clean` task is to delete the build directory, `CI=true` in test means we don't need watch the running of tests, it is especially useful when running on CI server.
 
