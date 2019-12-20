@@ -27,7 +27,7 @@ module.exports = {
       "version": "detected"
     },
     "import/parsers": {
-      "@typescript-eslint/parser": [ ".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {},
@@ -35,11 +35,7 @@ module.exports = {
     }
   },
   rules: {
-    "arrow-body-style": [
-      "error",
-      "as-needed",
-      {"requireReturnForObjectLiteral": true}
-    ],
+    "arrow-body-style": ["error", "always"],
     "no-unused-expressions": [
       "error",
       {

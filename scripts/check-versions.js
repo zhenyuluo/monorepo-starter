@@ -20,22 +20,29 @@ getPackages(process.cwd()).then(packages => {
 
   graph.forEach((pkgNode, name) => {
     let outdated = Array.from(pkgNode.localDependencies.values()).filter(
-      localDep =>
-        !semver.satisfies(graph.get(localDep.name).version, localDep.fetchSpec)
+      localDep => {
+        return !semver.satisfies(
+          graph.get(localDep.name).version,
+          localDep.fetchSpec
+        );
+      }
     );
 
     if (argv[`allow-next`]) {
-      outdated = outdated.filter(localDep => localDep.fetchSpec !== `next`);
+      outdated = outdated.filter(localDep => {
+        return localDep.fetchSpec !== `next`;
+      });
     }
 
     if (!outdated.length) return;
 
     const msg = outdated
-      .map(
-        p =>
+      .map(p => {
+        return (
           `  Depends on "${p.name}@${p.fetchSpec}" \n` +
           `  instead of "${p.name}@${graph.get(p.name).version}". \n`
-      )
+        );
+      })
       .join(`\n`);
 
     console.error(`${pkgNode.name}: \n${msg}`);

@@ -7,6 +7,10 @@
 # cache-dirs
 **/.cache
 
+# types and commitlint
+commitlint.config.js
+react-app-env.d.ts
+
 # ignore built packages
 packages/**/dist/**
 packages/**/build/**

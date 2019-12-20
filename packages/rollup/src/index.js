@@ -23,11 +23,14 @@ const omitOpts = omit([
   `filename`
 ]);
 
-const defaultExternal = id =>
-  !id.startsWith(`\0`) &&
-  !id.startsWith(`~`) &&
-  !id.startsWith(`.`) &&
-  !id.startsWith(process.platform === `win32` ? process.cwd() : `/`);
+const defaultExternal = id => {
+  return (
+    !id.startsWith(`\0`) &&
+    !id.startsWith(`~`) &&
+    !id.startsWith(`.`) &&
+    !id.startsWith(process.platform === `win32` ? process.cwd() : `/`)
+  );
+};
 
 const createOutput = (dir = `dist`, defaultOpts) => {
   const opts = omitOpts(defaultOpts);
@@ -102,5 +105,7 @@ const createOutput = (dir = `dist`, defaultOpts) => {
 exports.copy = copy;
 exports.config = opts => {
   const inputs = Array.isArray(opts) ? opts : [opts];
-  return inputs.map(({ dest: dir, ...opts }) => createOutput(dir, opts));
+  return inputs.map(({ dest: dir, ...opts }) => {
+    return createOutput(dir, opts);
+  });
 };

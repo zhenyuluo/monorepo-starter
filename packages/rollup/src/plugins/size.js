@@ -8,9 +8,15 @@ const gzip = require(`gzip-size`);
 const logUpdate = require(`log-update`);
 
 const label = `${chalk.cyan.bold(figures.arrowRight)}`;
-const placeholder = text => chalk.gray(`${text}:`);
-const getFilesize = file => filesize(fs.statSync(file).size);
-const getGzipSize = file => filesize(gzip.sync(fs.readFileSync(file, `utf-8`)));
+const placeholder = text => {
+  return chalk.gray(`${text}:`);
+};
+const getFilesize = file => {
+  return filesize(fs.statSync(file).size);
+};
+const getGzipSize = file => {
+  return filesize(gzip.sync(fs.readFileSync(file, `utf-8`)));
+};
 
 module.exports = dest => {
   return {
@@ -19,7 +25,9 @@ module.exports = dest => {
       if (!isWrite) return;
 
       const keys = Object.keys(bundle);
-      const builds = keys.map(key => bundle[key]);
+      const builds = keys.map(key => {
+        return bundle[key];
+      });
 
       builds.forEach((build, i) => {
         const filename = keys[i];

@@ -3,9 +3,9 @@
     "baseUrl": ".",
 
     /* Basic Operations */
-    "target": "es2017",
-    "module": "ES2015",
-    "lib": ["es2017", "DOM"],
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["esnext", "DOM"],
     "declaration": true,
     "declarationMap": true,
 
