@@ -1,3 +1,8 @@
+/**
+ * Copied from Gatsby:
+ * https://github.com/gatsbyjs/gatsby/blob/master/scripts/format-svg.js
+ */
+
 // this file exists because svgo only accepts folders or files, to make this work you'll need to do
 // find www examples packages | grep '\\.svg$' | xargs -Iz -n 1 svgo --pretty --indent=2 --config=svgo.yml z
 // this only works on bash not inside windows so we create a simple js file that does the globbing for us

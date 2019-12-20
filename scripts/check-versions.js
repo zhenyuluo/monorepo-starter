@@ -1,3 +1,7 @@
+/**
+ * Copied from Gatsby:
+ * https://github.com/gatsbyjs/gatsby/blob/master/scripts/check-versions.js
+ */
 const { writeFileSync } = require(`fs`);
 const yargs = require(`yargs`);
 const { getPackages } = require(`@lerna/project`);

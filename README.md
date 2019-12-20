@@ -149,7 +149,7 @@ Test is the one of the most important part in software development. So far, I ha
 
 # References
 
-To build this starter, I have referenced lots of projects, and of cause, I have stolen lots of the ideas and codes from them, below are some I think especially useful:
+To build this starter, I have studied a lot of projects, and of cause, I also lots of the ideas and codes from them, below are some I think especially useful:
 
 - [Gatsby](https://github.com/gatsbyjs/gatsby)
 - [Docz](https://github.com/doczjs/docz)
