@@ -142,9 +142,16 @@ it will run projects in development mode.
 
 More commands can be found in [package.json](./package.json).
 
+# Scope
+
+In starter, `@starter` is our [scoped package](https://docs.npmjs.com/misc/scope), you need change it to your own and below lists the files to be modified:
+
+- package.json
+- tsconfig.json
+
 # TODO
 
-### Tests
+### Testing
 
 Test is the one of the most important part in software development. So far, I haven't add the test framework in this starter yet. But you can add any test framework to your projects and then add `test` script to `package.json` in your project. Running `yarn test` will call your script (thanks to the awesome `lerna`).
 
