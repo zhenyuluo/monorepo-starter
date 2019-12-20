@@ -142,7 +142,7 @@ More commands can be found in [package.json](./package.json).
 
 ### Tests
 
-Tests is the one of the most important part in software development. So far, I haven't add the test framework in this starter yet. But you can add any test framework to your projects and then add `test` script to `package.json` in your project. Running `yarn test` will call your script (thanks to the awesome `lerna`).
+Test is the one of the most important part in software development. So far, I haven't add the test framework in this starter yet. But you can add any test framework to your projects and then add `test` script to `package.json` in your project. Running `yarn test` will call your script (thanks to the awesome `lerna`).
 
 - [ ] jest
 - [ ] cypress
