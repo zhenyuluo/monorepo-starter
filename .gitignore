@@ -36,7 +36,6 @@ dist
 # Build Path of Test Fixtures
 test/**/public
 .DS_Store
-public/
 node_modules/
 .cache/
 .netlify
