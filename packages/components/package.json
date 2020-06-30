@@ -16,21 +16,11 @@
     "build:dev": "cross-env NODE_ENV=development rollup -cw",
     "build:prod": "cross-env NODE_ENV=production rollup -c"
   },
-  "peerDependencies": {
-    "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "typescript": "^3.7.3"
-  },
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@starter/commons": "^1.1.0",
     "@starter/rollup": "^1.0.0",
     "@starter/utils": "^1.0.0"
-  },
-  "devDependencies": {
-    "bili": "^4.8.1"
   }
 }

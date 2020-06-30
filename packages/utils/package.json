@@ -16,12 +16,7 @@
     "build:dev": "cross-env NODE_ENV=development rollup -cw",
     "build:prod": "cross-env NODE_ENV=production rollup -c"
   },
-  "peerDependencies": {
-    "@types/react": "^16.9.15",
-    "@types/react-dom": "^16.9.4",
-    "typescript": "^3.7.3"
-  },
-  "dependencies": {
+  "devDependencies": {
     "@starter/rollup": "^1.0.0"
   }
 }

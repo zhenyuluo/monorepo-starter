@@ -1,25 +1,31 @@
 const { omit } = require(`lodash/fp`);
-// const autoprefixer = require(`autoprefixer`);
+const replace = require(`@rollup/plugin-replace`);
 const typescript = require(`rollup-plugin-typescript2`);
-const babel = require(`rollup-plugin-babel`);
-const json = require(`rollup-plugin-json`);
-const commonjs = require(`rollup-plugin-commonjs`);
-const nodeResolve = require(`rollup-plugin-node-resolve`);
-const alias = require(`rollup-plugin-alias`);
+const { babel } = require(`@rollup/plugin-babel`);
+const json = require(`@rollup/plugin-json`);
+const commonjs = require(`@rollup/plugin-commonjs`);
+const nodeResolve = require(`@rollup/plugin-node-resolve`);
+const alias = require(`@rollup/plugin-alias`);
 const postcss = require(`rollup-plugin-postcss`);
+const autoprefixer = require(`autoprefixer`);
 const progress = require(`rollup-plugin-progress`);
+const terser = require(`rollup-plugin-terser`).terser;
+// const sourcemap = require(`rollup-plugin-sourcemaps`);
 
 const clean = require(`./plugins/clean`);
 const size = require(`./plugins/size`);
 const copy = require(`./plugins/copy`);
 
+const env = process.env.NODE_ENV;
+const isProduction = env === `production`;
+
 const EXTENSIONS = [`.ts`, `.tsx`, `.js`, `.jsx`, `.es6`, `.es`, `.mjs`];
 const omitOpts = omit([
-  `alias`,
+  `alias`, //
   `external`,
   `output`,
   `plugins`,
-  `runtimeHelpers`,
+  `babelHelpers`,
   `filename`
 ]);
 
@@ -35,18 +41,29 @@ const defaultExternal = id => {
 const createOutput = (dir = `dist`, defaultOpts) => {
   const opts = omitOpts(defaultOpts);
   const {
-    alias: moduleAlias,
+    alias: moduleAlias, //
     external,
     output,
     plugins = [],
-    runtimeHelpers,
     filename
   } = defaultOpts;
 
+  const tsconfigOverride = {
+    compilerOptions: {
+      sourceMap: !isProduction,
+      mapRoot: dir
+    }
+  };
+
   const defaultPlugins = [
-    clean(dir),
+    isProduction && clean(dir),
+    replace({
+      "process.env.NODE_ENV": JSON.stringify(
+        isProduction ? `production` : `development`
+      )
+    }),
     postcss({
-      plugins: [],
+      plugins: [autoprefixer()],
       inject: false
     }),
     Object.keys(moduleAlias || {}).length > 0 &&
@@ -64,13 +81,17 @@ const createOutput = (dir = `dist`, defaultOpts) => {
     json(),
     typescript({
       typescript: require(`typescript`),
+      tsconfigOverride,
+      objectHashIgnoreUnknownHack: true,
       rollupCommonJSResolveHack: true
     }),
     babel({
-      runtimeHelpers,
+      babelHelpers: `bundled`,
       extensions: EXTENSIONS,
       exclude: `node_modules/**`
     }),
+    // sourcemap(),
+    isProduction && terser(),
     size(dir),
     progress({
       clearLine: false
@@ -81,6 +102,7 @@ const createOutput = (dir = `dist`, defaultOpts) => {
     {
       dir,
       format: `cjs`,
+      sourcemap: isProduction ? `` : true,
       chunkFileNames: filename ? `${filename}.js` : `[name].js`,
       entryFileNames: filename ? `${filename}.js` : `[name].js`,
       ...output
@@ -88,6 +110,7 @@ const createOutput = (dir = `dist`, defaultOpts) => {
     {
       dir,
       format: `esm`,
+      sourcemap: isProduction ? `` : true,
       chunkFileNames: filename ? `${filename}.esm.js` : `[name].esm.js`,
       entryFileNames: filename ? `${filename}.esm.js` : `[name].esm.js`,
       ...output
