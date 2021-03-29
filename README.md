@@ -14,7 +14,7 @@ Monorepo is awesome. If you want to know more, please visit this [awesome repo](
 └── utils
 ```
 
-the dependency of the projects looks like below:
+the dependencies of the project look like below:
 
 ```mermaid
 graph TD;
